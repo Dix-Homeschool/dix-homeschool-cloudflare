@@ -11,6 +11,9 @@ Static family homeschool website ("dix.homeschool"), a single page at `public/in
 - Only `public/` is served; repo docs (this file, AGENTS.md) are not published.
 
 ## How to deploy
+Pushing to GitHub `main` automatically builds and deploys to production (Cloudflare Workers Builds).
+Only push to `main` after Randy approves a preview.
+
 From the repo root on the Mac mini (`/Users/test/dix-homeschool-cloudflare`), with the Cloudflare
 API token loaded from the environment (never printed):
 

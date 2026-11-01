@@ -26,7 +26,26 @@ API token loaded from the environment (never printed):
 Note: Homebrew Node on the Mac may be broken; a working Node is at
 `/Users/test/sites/stinkydragon/.node/bin` (prepend it to PATH).
 
+## Live production
+- Live: version `c61a1b62-6921-49fe-807c-953528efdae2` (deployment `962ba860-a5c1-48c5-bd77-b5703399eebc`,
+  2026-10-31 04:21 UTC). This is the rollback target for the optimize work below.
+  (Version 5b4ff2e5 was deployed two minutes earlier and replaced; it is not live.)
+
 ## Current state (2026-10-31)
-- Header nav: Python path, All tracks, Our approach, About us.
+- Header nav: Python path, All tracks, NewEarth, Our approach, About us.
 - The "Open Code Lab ↗" button (linking to https://code.dixhome.com) was removed on 2026-10-31
   because Randy now uses Visual Studio Code locally. `code.dixhome.com` itself and DNS were not touched.
+
+## Pending: optimize + NewEarth (preview only, NOT in production)
+Local branch `optimize-2026-10-31` (not pushed). Preview alias `optimize`:
+https://optimize-dix-homeschool.randy-a03.workers.dev (version `37e90666-927c-4fb5-a224-57d1572d3dcb`).
+- `public/index.html`: AA contrast fixes (brand span, step labels, track labels, muted text), skip link
+  to `<main id="main-content">`, canonical/OG/Twitter tags, JSON-LD (no address/phone/names),
+  inline `style=` replaced by classes (`.code`, `.heading-gap`, `.note-gap`), ↗ removed from same-page
+  and mailto links, new `#newearth` section linking https://newearth.graphitenerd.com/ and `/stats`.
+- New files in `public/`: `og-image.png` (1200x630, no people), `robots.txt`, `sitemap.xml`,
+  `_headers` (security headers; `X-Robots-Tag: noindex` on workers.dev preview URLs only).
+- Intentionally not added: `404.html` (another bot is building a Gorillas 404), `_redirects`, dark mode.
+- Cloudflare managed robots.txt (content signals) is enabled for the zone and may prepend to ours.
+- To ship after Randy approves: merge to main and push (auto-deploys), or
+  `versions deploy 37e90666-927c-4fb5-a224-57d1572d3dcb@100% --yes`. Rollback: `c61a1b62...@100%`.

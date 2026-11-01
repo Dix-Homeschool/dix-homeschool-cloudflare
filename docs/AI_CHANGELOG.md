@@ -59,3 +59,7 @@
   (Workers Builds auto-deploys). Preview version that was approved: ebc3df74-2983-43bf-9a57-2dc0a70de8ce.
 - Rollback: `npx --yes wrangler@latest versions deploy c61a1b62-6921-49fe-807c-953528efdae2@100% --yes`
   (then push a revert so main matches production).
+- Result: push of f9ceabf auto-deployed version 5661ac63-af39-4ff2-8517-5cc241c6783f (deployment
+  307fbcdd-d458-4706-9a98-a530d715c804) at 10:08 PM ET. Verified on dixhome.com and www: home 200 with new
+  content, unknown paths 404 with Gorillas page, robots/sitemap/og-image/favicons 200, security headers
+  present, no X-Robots-Tag. robots.txt served exactly as committed (no managed lines added).

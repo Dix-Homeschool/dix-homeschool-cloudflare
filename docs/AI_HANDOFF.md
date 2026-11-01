@@ -27,9 +27,11 @@ Note: Homebrew Node on the Mac may be broken; a working Node is at
 `/Users/test/sites/stinkydragon/.node/bin` (prepend it to PATH).
 
 ## Live production
-- Live: version `c61a1b62-6921-49fe-807c-953528efdae2` (deployment `962ba860-a5c1-48c5-bd77-b5703399eebc`,
-  2026-10-31 04:21 UTC). This is the rollback target for the optimize work below.
-  (Version 5b4ff2e5 was deployed two minutes earlier and replaced; it is not live.)
+- Live: version `5661ac63-af39-4ff2-8517-5cc241c6783f` (deployment `307fbcdd-d458-4706-9a98-a530d715c804`,
+  2026-10-31 10:08 PM ET), auto-built by Workers Builds from main at f9ceabf.
+- Previous / rollback target: version `c61a1b62-6921-49fe-807c-953528efdae2` (deployment `962ba860`).
+  Rollback: `npx --yes wrangler@latest versions deploy c61a1b62-6921-49fe-807c-953528efdae2@100% --yes 2>&1 | grep -v -i token`
+  (then push a revert so main matches production).
 
 ## Current state (2026-10-31)
 - Header nav: Python path, All tracks, NewEarth, Our approach, About us.

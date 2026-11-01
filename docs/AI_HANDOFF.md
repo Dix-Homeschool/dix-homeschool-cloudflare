@@ -36,7 +36,7 @@ Note: Homebrew Node on the Mac may be broken; a working Node is at
 - The "Open Code Lab ↗" button (linking to https://code.dixhome.com) was removed on 2026-10-31
   because Randy now uses Visual Studio Code locally. `code.dixhome.com` itself and DNS were not touched.
 
-## Pending: optimize + NewEarth (preview only, NOT in production)
+## Optimize + NewEarth + Gorillas 404 (shipped 2026-10-31 ~10:07 PM ET on Randy's OK; rollback c61a1b62)
 Local branch `optimize-2026-10-31` (not pushed). Preview alias `optimize`:
 https://optimize-dix-homeschool.randy-a03.workers.dev (latest version `ebc3df74-2983-43bf-9a57-2dc0a70de8ce`).
 - `public/index.html`: AA contrast fixes (brand span, step labels, track labels, muted text), skip link

@@ -52,3 +52,10 @@
   return 404 with the Gorillas page; robots, sitemap, og-image, favicon.svg/.ico 200; headers applied.
 - Production: NOT deployed. Live remains c61a1b62-6921-49fe-807c-953528efdae2 (rollback target).
   Note: deploying this also changes `not_found_handling`, which ships with the version.
+
+## 2026-10-31 ~10:07 PM ET — Ship optimize + Gorillas 404 to production
+- Randy approved: "Yes, put the dixhome update and Gorillas 404 live".
+- How: fast-forward merge of `optimize-2026-10-31` into `main` and `git push origin main`
+  (Workers Builds auto-deploys). Preview version that was approved: ebc3df74-2983-43bf-9a57-2dc0a70de8ce.
+- Rollback: `npx --yes wrangler@latest versions deploy c61a1b62-6921-49fe-807c-953528efdae2@100% --yes`
+  (then push a revert so main matches production).

@@ -35,3 +35,19 @@
   https://optimize-dix-homeschool.randy-a03.workers.dev. Verified security headers and noindex.
 - Production: NOT deployed. Live remains c61a1b62-6921-49fe-807c-953528efdae2 (rollback target).
 - Backups of changed files: `backups/*.pre-optimize-2026-10-31` (untracked, not served).
+
+## 2026-10-31 — Gorillas 404, favicon, remaining label contrast (PREVIEW ONLY)
+- Why: Randy asked to add the Gorillas 404 page and finish the optimize pass.
+- What:
+  - `public/404.html`: Gorillas 404 built by another bot (reviewed: inline CSS/JS only, no outside
+    requests, links only to `/`, localStorage key `dixhome-404-gorillas` for game prefs). Added only a
+    favicon `<link>`.
+  - `wrangler.jsonc`: `"not_found_handling": "404-page"` under `assets` (unknown paths → 404.html, status 404).
+  - `public/favicon.svg`, `public/favicon.ico`, and `<link rel="icon">` tags in `public/index.html`.
+  - Contrast: `.eyebrow` #708358→#5c6c48 (3.72→5.11 on #f5f3ea, 3.35→4.61 on #e5e9db);
+    `.paper small` #84975f→#66754a (2.97→4.64 on #f8f7ef).
+- Commit: local branch `optimize-2026-10-31` (NOT pushed).
+- Preview: alias `optimize` (https://optimize-dix-homeschool.randy-a03.workers.dev); version id is in
+  the report of this upload (recorded in the follow-up docs commit if made).
+- Production: NOT deployed. Live remains c61a1b62-6921-49fe-807c-953528efdae2 (rollback target).
+  Note: deploying this also changes `not_found_handling`, which ships with the version.

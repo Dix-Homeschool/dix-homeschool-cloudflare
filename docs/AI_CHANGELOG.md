@@ -47,7 +47,8 @@
   - Contrast: `.eyebrow` #708358→#5c6c48 (3.72→5.11 on #f5f3ea, 3.35→4.61 on #e5e9db);
     `.paper small` #84975f→#66754a (2.97→4.64 on #f8f7ef).
 - Commit: local branch `optimize-2026-10-31` (NOT pushed).
-- Preview: alias `optimize` (https://optimize-dix-homeschool.randy-a03.workers.dev); version id is in
-  the report of this upload (recorded in the follow-up docs commit if made).
+- Commit db263f4. Preview: version ebc3df74-2983-43bf-9a57-2dc0a70de8ce, alias `optimize`
+  (https://optimize-dix-homeschool.randy-a03.workers.dev). Verified: / 200; /does-not-exist and /a/b/c
+  return 404 with the Gorillas page; robots, sitemap, og-image, favicon.svg/.ico 200; headers applied.
 - Production: NOT deployed. Live remains c61a1b62-6921-49fe-807c-953528efdae2 (rollback target).
   Note: deploying this also changes `not_found_handling`, which ships with the version.

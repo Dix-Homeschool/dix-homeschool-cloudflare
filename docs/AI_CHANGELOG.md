@@ -77,3 +77,16 @@
 - Preview: version `5f4a610c-8791-4aad-848f-269317e14ee4`, alias `stinkdoku-beta`
   (https://stinkdoku-beta-dix-homeschool.randy-a03.workers.dev). Verified 200, noindex on workers.dev, links 200, no Chrome console errors at 1280×800 and 390×844.
 - Production: NOT deployed. dixhome.com is unchanged.
+
+## 2026-11-14 ~3:10 AM ET — School STEM refresh (PREVIEW ONLY)
+- Why: Randy asked for a complete, non-family, school-voiced STEM site; later added Wildlife and the AI-player research; then supplied final legal wording and asked that each ORC citation be linked.
+- What (`public/index.html` only; `_headers` and Gorillas 404 unchanged):
+  - Official legal text (hero status band and About), exact: "Dix Homeschool is an Ohio home education program operating under Ohio Revised Code 3321.042. We currently teach grades 7-12, and issue high school diplomas to graduates under ORC 3313.6110. This site covers the STEM portion of our curriculum."
+  - Short footer: "Ohio home education program under ORC 3321.042. Grades 7-12; high school diplomas issued under ORC 3313.6110. This site covers the STEM portion of our curriculum."
+  - Citations link to https://codes.ohio.gov/ohio-revised-code/section-3321.042 and https://codes.ohio.gov/ohio-revised-code/section-3313.6110 (`target="_blank" rel="noopener"`). No CSP was added or changed (this site does not set a CSP; anchors do not need one).
+  - Removed "accredited", "K-12", "in accordance with Ohio law", and public "family" project wording.
+  - Curriculum rewritten as grades 7-12 STEM strands from real work. Current projects: StinkDoku, NewEarth Wildlife (public once working), autonomous AI player (research, not finished). Easy-to-change status text is documented in an HTML comment and in `docs/AI_HANDOFF.md`.
+- Branch: `feature/site-refresh` at `/Users/test/sites/dixhome-stinkdoku-mention` (NOT pushed).
+- Preview: version `04bdca50-c2da-4227-b11b-56001b8620b3`, alias `site-refresh`
+  (https://site-refresh-dix-homeschool.randy-a03.workers.dev). Verified 200, noindex on workers.dev, ORC and project links 200, no Chrome console errors at 1280×800 and 390×844.
+- Production: NOT deployed. dixhome.com is unchanged.

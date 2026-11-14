@@ -77,3 +77,39 @@ https://optimize-dix-homeschool.randy-a03.workers.dev (latest version `ebc3df74-
   2. Verify https://dixhome.com/ and https://www.dixhome.com/ show the new section; unknown paths still 404 with the Gorillas page; security headers still present; no `X-Robots-Tag` on the real domain.
   3. Then, with his OK, merge this branch into `main` and push so the repo matches production. The Mac's `GITHUB_TOKEN` cannot write to the Dix-Homeschool org; ask the GitHub bot (or Randy) to push. Workers Builds auto-deploy may still be disconnected after the repo transfer — do not assume a push deploys. The wrangler versions deploy in step 1 is what actually ships it.
   4. Rollback if needed: `npx --yes wrangler@latest versions deploy <currently-live-version-id>@100% --yes 2>&1 | grep -v -i token` (then revert the commit so main matches). Check the live version with `npx wrangler deployments list 2>&1 | grep -v -i token` at go-live time; as of 2026-11-13 the live version was `cc6f4a2d-ba9d-4f1a-97ca-4df220d6e8ad` (site files identical to f9ceabf / e1864c1).
+
+## Site refresh — PREVIEW ONLY (2026-11-14, ~3:10 AM ET)
+
+- Why: Randy (2:59 AM ET) asked to drop "family" project wording, rewrite the curriculum to match the real STEM work, make the site look like a complete school program, and state the school's legal status. He later added NewEarth Wildlife and the autonomous AI player research (3:02 AM), then replaced the legal wording (3:07 AM) and asked that each ORC citation be linked (3:08 AM).
+- Branch / worktree (not pushed): `feature/site-refresh`, branched from `feature/stinkdoku-beta-mention` in `/Users/test/sites/dixhome-stinkdoku-mention`.
+- Files: `public/index.html` rewritten (pretty-printed). `public/_headers` and `public/404.html` were not changed. There is still no Content-Security-Policy on this site; outbound links are ordinary `<a href>` anchors and do not need a CSP change.
+- Legal / school-status wording is kept easy to change. Canonical instructions are in an HTML comment at the top of `index.html`.
+  - Official text (exact, hero status band and About), class `school-status-text`:
+    "Dix Homeschool is an Ohio home education program operating under Ohio Revised Code 3321.042. We currently teach grades 7-12, and issue high school diplomas to graduates under ORC 3313.6110. This site covers the STEM portion of our curriculum."
+  - Short footer, class `school-status-footer`:
+    "Ohio home education program under ORC 3321.042. Grades 7-12; high school diplomas issued under ORC 3313.6110. This site covers the STEM portion of our curriculum."
+  - Links (new tab, `rel="noopener"`): "Ohio Revised Code 3321.042" and footer "ORC 3321.042" → https://codes.ohio.gov/ohio-revised-code/section-3321.042 ; "ORC 3313.6110" → https://codes.ohio.gov/ohio-revised-code/section-3313.6110. Meta description, og:description and JSON-LD keep the official sentences as plain text (no HTML).
+  - Do not use "accredited", "K-12", or "in accordance with Ohio law" / "because of Ohio law" in visible copy.
+- Public-facing "family" wording was removed (CSS `font-family` only). NewEarth is described as a private, approved-player STEM world, not a family project.
+- Curriculum is organized as a grades 7-12 STEM program with strands (no invented course names, credits, teachers or stats): NewEarth building and history; game and app development (Scratch, StinkDoku); web development and Cloudflare hosting; GitHub workflow; Raspberry Pi and home networking; AI tools and the AI-player research; Python (existing 12-step path kept); Minecraft plugin development (NewEarth Wildlife).
+- Current projects (three cards): StinkDoku (beta, tester and web-play buttons); NewEarth Wildlife (in development, will be made public once working, no download link); an autonomous AI player (research in progress, not a finished product, not named "Bob" on the page).
+- Other polish: CSS-only mobile Menu, tighter nav, school-status band, green info strip, About and footer restated in the new legal frame. The 12 Python steps remain, with "playtest with family" changed to "playtest and revise it."
+- Preview (no production traffic):
+  - Alias: https://site-refresh-dix-homeschool.randy-a03.workers.dev
+  - Version ID: `04bdca50-c2da-4227-b11b-56001b8620b3`
+  - Also: https://04bdca50-dix-homeschool.randy-a03.workers.dev
+- Earlier preview versions on the same alias (`45a28aed-...`, `9974345f-...`) are superseded by `04bdca50-...`.
+- Production: **unchanged.** dixhome.com still has the old copy.
+- Checked: desktop 1280×800 and mobile 390×844 in headless Chrome; no console errors; StinkDoku, NewEarth, stats, and both ORC links return 200; Gorillas 404 still works; no CSP header (same as before). Screenshots: `/workspace/dixhome-refresh-preview/` on the Websites box.
+- To go live, after Randy himself OKs this preview:
+  1. `npx --yes wrangler@latest versions deploy 04bdca50-c2da-4227-b11b-56001b8620b3@100% --yes 2>&1 | grep -v -i token` from the worktree.
+  2. Verify dixhome.com and www: new copy, ORC links, Gorillas 404, security headers, no X-Robots-Tag on the real domain.
+  3. With a separate OK, merge `feature/site-refresh` into `main` and push (GitHub bot or Randy; the Mac token cannot write to Dix-Homeschool). Do not assume Workers Builds will auto-deploy.
+  4. Rollback: `npx wrangler deployments list` first, then `versions deploy <currently-live-id>@100%`. As of 2026-11-13 the live version was `cc6f4a2d-ba9d-4f1a-97ca-4df220d6e8ad`.
+
+### Open questions for Randy
+- How should NewEarth "history work" be described (historical builds, world lore, or formal history study)?
+- Should the autonomous AI player be named Bob on the site?
+- The StinkDoku marketing repo is private; we called the game "an open-source project" with no source link. Is there a public repo to link, or should that wording wait until the source is public?
+- Raspberry Pi and home networking are included as a strand from Randy's list and existing home systems, but there is no written syllabus in the repo. Any detail to add or trim?
+- Is the program accepting new students, or should "Get in touch" stay as a general contact only?

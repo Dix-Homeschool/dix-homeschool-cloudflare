@@ -63,3 +63,9 @@
   307fbcdd-d458-4706-9a98-a530d715c804) at 10:08 PM ET. Verified on dixhome.com and www: home 200 with new
   content, unknown paths 404 with Gorillas page, robots/sitemap/og-image/favicons 200, security headers
   present, no X-Robots-Tag. robots.txt served exactly as committed (no managed lines added).
+
+## 2026-11-13 ~11:00 PM ET, Websites bot (takeover handoff)
+- **What:** rewrote `docs/AI_HANDOFF.md` as a full takeover document (the previous text is kept as Appendix A, with the account ID removed because the repo is now public), added start-here and rules lines to `AGENTS.md`, and appended this entry.
+- **Why:** Randy's order (relayed by the GitHub bot, 2026-11-13) that any AI can take over immediately.
+- **Checked live (read-only):** Worker version `cc6f4a2d` (Workers Builds, from e1864c1, 2026-11-05 ~8:05 PM ET) serves files byte-identical to `public/`. The build trigger still points at `geekdadteach/dix-homeschool-cloudflare`.
+- **Deploy:** none. **Push:** none yet. Branch `websites/takeover-handoff` is committed locally. Pushing needs an account with Dix-Homeschool org write access, and Randy's OK.

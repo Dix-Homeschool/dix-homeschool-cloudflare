@@ -63,3 +63,50 @@
   307fbcdd-d458-4706-9a98-a530d715c804) at 10:08 PM ET. Verified on dixhome.com and www: home 200 with new
   content, unknown paths 404 with Gorillas page, robots/sitemap/og-image/favicons 200, security headers
   present, no X-Robots-Tag. robots.txt served exactly as committed (no managed lines added).
+
+## 2026-11-14 ~2:47 AM ET — StinkDoku current-project mention (PREVIEW ONLY)
+- Why: Randy asked to mention StinkDoku on dixhome.com as one of the current projects, currently in beta on both platforms, with a link back to the game.
+- What (`public/index.html` only):
+  - New `#projects` section after NewEarth, titled "Current projects.", eyebrow "What we're making".
+  - One card: StinkDoku, a free, ad-free Sudoku game the family is building, in beta on iPhone and Android.
+  - Worded buttons: "Become a tester ↗" → https://stinkdoku.com/beta/ ; "Play on the web ↗" → https://play.stinkdoku.com/.
+  - Header nav: added "Current projects" after NewEarth.
+  - CSS: `.project-links` and outlined `.button-alt`. NewEarth styles and `_headers` unchanged.
+- Not added: BrewDadLabs branding (doesn't fit this site's voice), kids' names, email, or any production/DNS change.
+- Branch: `feature/stinkdoku-beta-mention` at `/Users/test/sites/dixhome-stinkdoku-mention` (NOT pushed).
+- Preview: version `5f4a610c-8791-4aad-848f-269317e14ee4`, alias `stinkdoku-beta`
+  (https://stinkdoku-beta-dix-homeschool.randy-a03.workers.dev). Verified 200, noindex on workers.dev, links 200, no Chrome console errors at 1280×800 and 390×844.
+- Production: NOT deployed. dixhome.com is unchanged.
+
+## 2026-11-14 ~3:10 AM ET — School STEM refresh (PREVIEW ONLY)
+- Why: Randy asked for a complete, non-family, school-voiced STEM site; later added Wildlife and the AI-player research; then supplied final legal wording and asked that each ORC citation be linked.
+- What (`public/index.html` only; `_headers` and Gorillas 404 unchanged):
+  - Official legal text (hero status band and About), exact: "Dix Homeschool is an Ohio home education program operating under Ohio Revised Code 3321.042. We currently teach grades 7-12, and issue high school diplomas to graduates under ORC 3313.6110. This site covers the STEM portion of our curriculum."
+  - Short footer: "Ohio home education program under ORC 3321.042. Grades 7-12; high school diplomas issued under ORC 3313.6110. This site covers the STEM portion of our curriculum."
+  - Citations link to https://codes.ohio.gov/ohio-revised-code/section-3321.042 and https://codes.ohio.gov/ohio-revised-code/section-3313.6110 (`target="_blank" rel="noopener"`). No CSP was added or changed (this site does not set a CSP; anchors do not need one).
+  - Removed "accredited", "K-12", "in accordance with Ohio law", and public "family" project wording.
+  - Curriculum rewritten as grades 7-12 STEM strands from real work. Current projects: StinkDoku, NewEarth Wildlife (public once working), autonomous AI player (research, not finished). Easy-to-change status text is documented in an HTML comment and in `docs/AI_HANDOFF.md`.
+- Branch: `feature/site-refresh` at `/Users/test/sites/dixhome-stinkdoku-mention` (NOT pushed).
+- Preview: version `04bdca50-c2da-4227-b11b-56001b8620b3`, alias `site-refresh`
+  (https://site-refresh-dix-homeschool.randy-a03.workers.dev). Verified 200, noindex on workers.dev, ORC and project links 200, no Chrome console errors at 1280×800 and 390×844.
+- Production: NOT deployed. dixhome.com is unchanged.
+
+## 2026-11-14 ~3:12 AM ET — Preview copy answers (PREVIEW ONLY)
+- Why: Randy answered the remaining copy questions on the site-refresh preview.
+- What (`public/index.html` only):
+  - NewEarth history is formal history study: history lessons are taught through building in the world.
+  - The AI player is named Bob (curriculum, current projects, NewEarth lead). Still research in progress, not a finished product.
+  - StinkDoku: "It will be released as open source when ready." No source repo link.
+  - "Get in touch" stays a general contact. No enrollment language.
+- Branch: `feature/site-refresh` (NOT pushed).
+- Preview redeployed to alias `site-refresh`: version `50cb47b3-867e-4404-8f98-d71d14890a69`
+  (https://site-refresh-dix-homeschool.randy-a03.workers.dev). Rechecked at 1280×800 and 390×844; no console errors.
+- Production: NOT deployed. dixhome.com is unchanged.
+
+## 2026-11-14 ~3:17 AM ET — Ship site refresh to production
+- Randy approved the preview: "Looks good."
+- Previous live version (rollback): `cc6f4a2d-ba9d-4f1a-97ca-4df220d6e8ad`
+  Command: `npx --yes wrangler@latest versions deploy cc6f4a2d-ba9d-4f1a-97ca-4df220d6e8ad@100% --yes 2>&1 | grep -v -i token`
+- Deployed: `npx wrangler versions deploy 50cb47b3-867e-4404-8f98-d71d14890a69@100% --yes` from `/Users/test/sites/dixhome-stinkdoku-mention`.
+- Verified on https://dixhome.com/ and https://www.dixhome.com/: 200 with the new STEM copy (formal history study, Bob, open-source-when-ready wording, official legal text), ORC citation links 200, unknown paths 404 with the Gorillas page, security headers present, no X-Robots-Tag on the real domain. Checked at 1280×800 and 390×844.
+- Repo: commit of this changelog is on `feature/site-refresh` (to be pushed and opened as a PR to main; not merged in this step).

@@ -63,3 +63,17 @@
   307fbcdd-d458-4706-9a98-a530d715c804) at 10:08 PM ET. Verified on dixhome.com and www: home 200 with new
   content, unknown paths 404 with Gorillas page, robots/sitemap/og-image/favicons 200, security headers
   present, no X-Robots-Tag. robots.txt served exactly as committed (no managed lines added).
+
+## 2026-11-14 ~2:47 AM ET — StinkDoku current-project mention (PREVIEW ONLY)
+- Why: Randy asked to mention StinkDoku on dixhome.com as one of the current projects, currently in beta on both platforms, with a link back to the game.
+- What (`public/index.html` only):
+  - New `#projects` section after NewEarth, titled "Current projects.", eyebrow "What we're making".
+  - One card: StinkDoku, a free, ad-free Sudoku game the family is building, in beta on iPhone and Android.
+  - Worded buttons: "Become a tester ↗" → https://stinkdoku.com/beta/ ; "Play on the web ↗" → https://play.stinkdoku.com/.
+  - Header nav: added "Current projects" after NewEarth.
+  - CSS: `.project-links` and outlined `.button-alt`. NewEarth styles and `_headers` unchanged.
+- Not added: BrewDadLabs branding (doesn't fit this site's voice), kids' names, email, or any production/DNS change.
+- Branch: `feature/stinkdoku-beta-mention` at `/Users/test/sites/dixhome-stinkdoku-mention` (NOT pushed).
+- Preview: version `5f4a610c-8791-4aad-848f-269317e14ee4`, alias `stinkdoku-beta`
+  (https://stinkdoku-beta-dix-homeschool.randy-a03.workers.dev). Verified 200, noindex on workers.dev, links 200, no Chrome console errors at 1280×800 and 390×844.
+- Production: NOT deployed. dixhome.com is unchanged.

@@ -99,13 +99,12 @@ https://optimize-dix-homeschool.randy-a03.workers.dev (latest version `ebc3df74-
   - Version ID: `50cb47b3-867e-4404-8f98-d71d14890a69`
   - Also: https://50cb47b3-dix-homeschool.randy-a03.workers.dev
 - Earlier preview versions on the same alias (`45a28aed-...`, `9974345f-...`, `04bdca50-...`) are superseded by `50cb47b3-...`.
-- Production: **unchanged.** dixhome.com still has the old copy.
+- Production: **LIVE as of 2026-11-14 ~3:17 AM ET**, after Randy said "Looks good." Version `50cb47b3-867e-4404-8f98-d71d14890a69` is at 100% on dixhome.com and www.
+- Rollback target (previous live version): `cc6f4a2d-ba9d-4f1a-97ca-4df220d6e8ad`
+  `npx --yes wrangler@latest versions deploy cc6f4a2d-ba9d-4f1a-97ca-4df220d6e8ad@100% --yes 2>&1 | grep -v -i token`
+  Then revert or reset the repo so main matches, with Randy's OK.
 - Checked: desktop 1280×800 and mobile 390×844 in headless Chrome; no console errors; StinkDoku, NewEarth, stats, and both ORC links return 200; Gorillas 404 still works; no CSP header (same as before). Screenshots refreshed in `/workspace/dixhome-refresh-preview/` on the Websites box.
-- To go live, after Randy himself OKs this preview:
-  1. `npx --yes wrangler@latest versions deploy 50cb47b3-867e-4404-8f98-d71d14890a69@100% --yes 2>&1 | grep -v -i token` from the worktree.
-  2. Verify dixhome.com and www: new copy, ORC links, Gorillas 404, security headers, no X-Robots-Tag on the real domain.
-  3. With a separate OK, merge `feature/site-refresh` into `main` and push (GitHub bot or Randy; the Mac token cannot write to Dix-Homeschool). Do not assume Workers Builds will auto-deploy.
-  4. Rollback: `npx wrangler deployments list` first, then `versions deploy <currently-live-id>@100%`. As of 2026-11-13 the live version was `cc6f4a2d-ba9d-4f1a-97ca-4df220d6e8ad`.
+- Shipped: `versions deploy 50cb47b3-867e-4404-8f98-d71d14890a69@100% --yes` from this worktree after Randy's OK. Verified dixhome.com and www (200, new copy, ORC links 200, Gorillas 404, security headers present, no X-Robots-Tag). Next: push `feature/site-refresh` and open a PR to main (no merge in this step). Do not assume Workers Builds will auto-deploy; this ship was a wrangler versions deploy. The Mac's GITHUB_TOKEN cannot write to the Dix-Homeschool org, so the push/PR may need the GitHub bot or Randy's account.
 
 ### Answered by Randy, 3:12 AM ET, 14 Nov 2026
 - NewEarth history work is formal history study: history lessons taught through building in the world. (Copy updated on this preview.)

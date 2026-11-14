@@ -102,3 +102,11 @@
 - Preview redeployed to alias `site-refresh`: version `50cb47b3-867e-4404-8f98-d71d14890a69`
   (https://site-refresh-dix-homeschool.randy-a03.workers.dev). Rechecked at 1280×800 and 390×844; no console errors.
 - Production: NOT deployed. dixhome.com is unchanged.
+
+## 2026-11-14 ~3:17 AM ET — Ship site refresh to production
+- Randy approved the preview: "Looks good."
+- Previous live version (rollback): `cc6f4a2d-ba9d-4f1a-97ca-4df220d6e8ad`
+  Command: `npx --yes wrangler@latest versions deploy cc6f4a2d-ba9d-4f1a-97ca-4df220d6e8ad@100% --yes 2>&1 | grep -v -i token`
+- Deployed: `npx wrangler versions deploy 50cb47b3-867e-4404-8f98-d71d14890a69@100% --yes` from `/Users/test/sites/dixhome-stinkdoku-mention`.
+- Verified on https://dixhome.com/ and https://www.dixhome.com/: 200 with the new STEM copy (formal history study, Bob, open-source-when-ready wording, official legal text), ORC citation links 200, unknown paths 404 with the Gorillas page, security headers present, no X-Robots-Tag on the real domain. Checked at 1280×800 and 390×844.
+- Repo: commit of this changelog is on `feature/site-refresh` (to be pushed and opened as a PR to main; not merged in this step).

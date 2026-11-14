@@ -92,24 +92,26 @@ https://optimize-dix-homeschool.randy-a03.workers.dev (latest version `ebc3df74-
   - Do not use "accredited", "K-12", or "in accordance with Ohio law" / "because of Ohio law" in visible copy.
 - Public-facing "family" wording was removed (CSS `font-family` only). NewEarth is described as a private, approved-player STEM world, not a family project.
 - Curriculum is organized as a grades 7-12 STEM program with strands (no invented course names, credits, teachers or stats): NewEarth building and history; game and app development (Scratch, StinkDoku); web development and Cloudflare hosting; GitHub workflow; Raspberry Pi and home networking; AI tools and the AI-player research; Python (existing 12-step path kept); Minecraft plugin development (NewEarth Wildlife).
-- Current projects (three cards): StinkDoku (beta, tester and web-play buttons); NewEarth Wildlife (in development, will be made public once working, no download link); an autonomous AI player (research in progress, not a finished product, not named "Bob" on the page).
+- Current projects (three cards): StinkDoku (beta, tester and web-play buttons; "will be released as open source when ready," no repo link); NewEarth Wildlife (in development, will be made public once working, no download link); Bob, an autonomous AI player (research in progress, not a finished product).
 - Other polish: CSS-only mobile Menu, tighter nav, school-status band, green info strip, About and footer restated in the new legal frame. The 12 Python steps remain, with "playtest with family" changed to "playtest and revise it."
-- Preview (no production traffic):
+- Preview (no production traffic), updated 3:12 AM ET after Randy's copy answers:
   - Alias: https://site-refresh-dix-homeschool.randy-a03.workers.dev
-  - Version ID: `04bdca50-c2da-4227-b11b-56001b8620b3`
-  - Also: https://04bdca50-dix-homeschool.randy-a03.workers.dev
-- Earlier preview versions on the same alias (`45a28aed-...`, `9974345f-...`) are superseded by `04bdca50-...`.
+  - Version ID: `50cb47b3-867e-4404-8f98-d71d14890a69`
+  - Also: https://50cb47b3-dix-homeschool.randy-a03.workers.dev
+- Earlier preview versions on the same alias (`45a28aed-...`, `9974345f-...`, `04bdca50-...`) are superseded by `50cb47b3-...`.
 - Production: **unchanged.** dixhome.com still has the old copy.
-- Checked: desktop 1280×800 and mobile 390×844 in headless Chrome; no console errors; StinkDoku, NewEarth, stats, and both ORC links return 200; Gorillas 404 still works; no CSP header (same as before). Screenshots: `/workspace/dixhome-refresh-preview/` on the Websites box.
+- Checked: desktop 1280×800 and mobile 390×844 in headless Chrome; no console errors; StinkDoku, NewEarth, stats, and both ORC links return 200; Gorillas 404 still works; no CSP header (same as before). Screenshots refreshed in `/workspace/dixhome-refresh-preview/` on the Websites box.
 - To go live, after Randy himself OKs this preview:
-  1. `npx --yes wrangler@latest versions deploy 04bdca50-c2da-4227-b11b-56001b8620b3@100% --yes 2>&1 | grep -v -i token` from the worktree.
+  1. `npx --yes wrangler@latest versions deploy 50cb47b3-867e-4404-8f98-d71d14890a69@100% --yes 2>&1 | grep -v -i token` from the worktree.
   2. Verify dixhome.com and www: new copy, ORC links, Gorillas 404, security headers, no X-Robots-Tag on the real domain.
   3. With a separate OK, merge `feature/site-refresh` into `main` and push (GitHub bot or Randy; the Mac token cannot write to Dix-Homeschool). Do not assume Workers Builds will auto-deploy.
   4. Rollback: `npx wrangler deployments list` first, then `versions deploy <currently-live-id>@100%`. As of 2026-11-13 the live version was `cc6f4a2d-ba9d-4f1a-97ca-4df220d6e8ad`.
 
-### Open questions for Randy
-- How should NewEarth "history work" be described (historical builds, world lore, or formal history study)?
-- Should the autonomous AI player be named Bob on the site?
-- The StinkDoku marketing repo is private; we called the game "an open-source project" with no source link. Is there a public repo to link, or should that wording wait until the source is public?
+### Answered by Randy, 3:12 AM ET, 14 Nov 2026
+- NewEarth history work is formal history study: history lessons taught through building in the world. (Copy updated on this preview.)
+- Name the AI player Bob on the site. (Copy updated; still described as research in progress.)
+- StinkDoku: say it will be released as open source when ready, with no repo link. (Copy updated.)
+- "Get in touch" stays a general contact. Do not mention enrollment. (Unchanged; no enrollment language added.)
+
+### Still open
 - Raspberry Pi and home networking are included as a strand from Randy's list and existing home systems, but there is no written syllabus in the repo. Any detail to add or trim?
-- Is the program accepting new students, or should "Get in touch" stay as a general contact only?

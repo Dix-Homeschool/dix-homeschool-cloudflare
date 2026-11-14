@@ -90,3 +90,15 @@
 - Preview: version `04bdca50-c2da-4227-b11b-56001b8620b3`, alias `site-refresh`
   (https://site-refresh-dix-homeschool.randy-a03.workers.dev). Verified 200, noindex on workers.dev, ORC and project links 200, no Chrome console errors at 1280×800 and 390×844.
 - Production: NOT deployed. dixhome.com is unchanged.
+
+## 2026-11-14 ~3:12 AM ET — Preview copy answers (PREVIEW ONLY)
+- Why: Randy answered the remaining copy questions on the site-refresh preview.
+- What (`public/index.html` only):
+  - NewEarth history is formal history study: history lessons are taught through building in the world.
+  - The AI player is named Bob (curriculum, current projects, NewEarth lead). Still research in progress, not a finished product.
+  - StinkDoku: "It will be released as open source when ready." No source repo link.
+  - "Get in touch" stays a general contact. No enrollment language.
+- Branch: `feature/site-refresh` (NOT pushed).
+- Preview redeployed to alias `site-refresh`: version `50cb47b3-867e-4404-8f98-d71d14890a69`
+  (https://site-refresh-dix-homeschool.randy-a03.workers.dev). Rechecked at 1280×800 and 390×844; no console errors.
+- Production: NOT deployed. dixhome.com is unchanged.
